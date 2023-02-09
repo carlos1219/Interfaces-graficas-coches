@@ -1,0 +1,93 @@
+﻿<Window x:Class="TrabajoFinal.Ventana"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrabajoFinal"
+        mc:Ignorable="d"
+        WindowStartupLocation="Manual"
+        Top="150"
+        Left="1050"
+        Title="VentanaSecundaria" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="Tabla_1" Text="Tabla 1" Grid.Row="0" Grid.ColumnSpan="4" Grid.Column="0"  FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="ExtraBlack" FontFamily="Comic Sans MS"/>
+        <TextBlock x:Name="Tabla_2" Text="Tabla 2" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="4" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="ExtraBlack" FontFamily="Comic Sans MS"/>
+
+        <ListView x:Name="Lista1" Grid.Row="1" Grid.Column="0"  Grid.ColumnSpan="4" Grid.RowSpan="2" SelectionChanged="Lista1_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Matricula" DisplayMemberBinding="{Binding Matricula}"/>
+                    <GridViewColumn Header="Marca" DisplayMemberBinding="{Binding Marca}"/>
+                    <GridViewColumn Header="Kilometraje" DisplayMemberBinding="{Binding Kilometrajet}"/>
+                    <GridViewColumn Header="Media de consumo por 100km" DisplayMemberBinding="{Binding MediaLitros}"/>
+                    <GridViewColumn Header="Media de coste por 100 km " DisplayMemberBinding="{Binding MediaCoste}"/>
+                    <GridViewColumn Header="Media gasto en tienda por repostaje " DisplayMemberBinding="{Binding MediaCompra}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView x:Name="Lista2" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4"  Grid.RowSpan="2" SelectionChanged="Lista2_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Fecha" DisplayMemberBinding="{Binding Fecha}"/>
+                    <GridViewColumn Header="KM" DisplayMemberBinding="{Binding Kilometraje}"/>
+                    <GridViewColumn Header="Litros" DisplayMemberBinding="{Binding Litros}"/>
+                    <GridViewColumn Header="Coste" DisplayMemberBinding="{Binding Costes}"/>
+                    <GridViewColumn Header="Compra en tienda" DisplayMemberBinding="{Binding Preciot}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="Borrar_datos" Click="Borrar_datos_Click" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="4"  Width="150" Height="60" >
+            <Button.Template>
+
+                <ControlTemplate>
+                    <Border CornerRadius="50" BorderThickness="3" BorderBrush="Cyan" Background="#FFA7FFE9" >
+                        <ContentPresenter Content="Borrar todo el vehiculo" VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+                    </Border>
+
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Name="Borrar_repostaje" Click="Borrar_repostaje_Click"  Grid.Column="4" Grid.ColumnSpan="4" Grid.Row="4"  Width="150" Height="60" >
+            <Button.Template>
+
+                <ControlTemplate>
+                    <Border CornerRadius="50" BorderThickness="3" BorderBrush="Cyan" Background="#FFFF7373" >
+                        <ContentPresenter Content="Borrar el repostaje" VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+                    </Border>
+
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Name="Añadirtxt" Click="Añadirtxt_Click"  Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="4"  Width="150" Height="60"  >
+            <Button.Template>
+
+                <ControlTemplate>
+                    <Border CornerRadius="50" BorderThickness="3" BorderBrush="Cyan" Background="#FF8C8EFF" >
+                        <ContentPresenter Content="Añadir a BD" VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+                    </Border>
+
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+</Window>
